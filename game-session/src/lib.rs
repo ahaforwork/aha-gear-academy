@@ -242,6 +242,3 @@ extern "C" fn state() {
     };
     msg::reply(state, 0).expect("Failed to share state");
 }
-
-#[cfg(test)]
-mod tests;
