@@ -1,22 +1,21 @@
 use game_session_io::*;
 use gstd::{debug, exec, msg, prelude::*, ActorId, MessageId};
 use gtest::{Program, System};
-use wordle_io;
+use wordle_io::*;
 
 const USER: u64 = 10;
-const WORDLE_PROGRAM_ID: u64 = 2;
 
 fn init_game_session(system: &System) -> Program {
     system.init_logger();
     system.mint_to(USER, 1000000000000000000000);
 
     let session_program = Program::from_file(
-        &system,
+        system,
         "../target/wasm32-unknown-unknown/debug/game_session.opt.wasm",
     );
 
     let wordle_program = Program::from_file(
-        &system,
+        system,
         "../target/wasm32-unknown-unknown/debug/wordle.opt.wasm",
     );
 
