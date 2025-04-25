@@ -1,7 +1,6 @@
-use game_session_io::*;
-use gstd::{debug, exec, msg, prelude::*, ActorId, MessageId};
+use game_session_io::{self, Action, GameResult, GameStatus};
+use gstd::prelude::*;
 use gtest::{Program, System};
-use wordle_io::*;
 
 const USER: u64 = 10;
 
